@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.db import models
 
 
@@ -6,9 +5,9 @@ class TypeChoices(models.TextChoices):
 
     TEXT = 'TEXT', 'Text answer'
     ONE = 'ONE_FIELD', 'One field answer'
-    MULTIPLE = 'MULT_Field', 'Multiple fields answer' \
-                             '' \
-                             ''
+    MULTIPLE = 'MULT_Field', 'Multiple fields answer'
+
+
 class Survey(models.Model):
     title = models.CharField(max_length=128)
     start_date = models.DateField(auto_now_add=True)
@@ -23,9 +22,10 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
+    user = models.IntegerField()
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    answer = models.TextField()
+    text_answer = models.TextField(null=True)
+    choice_answer = models.TextField(null=True)
 
-
-
+    class Meta:
+        unique_together = ('question', 'user')
