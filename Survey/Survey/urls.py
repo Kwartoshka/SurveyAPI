@@ -25,6 +25,7 @@ router = DefaultRouter()
 router.register('surveys', views.SurveyViewSet, basename='surveys')
 router.register('questions', views.QuestionViewSet, basename='questions')
 router.register('answers', views.AnswerViewSet, basename='answers')
+router.register('choices', views.ChoiceViewSet, basename='choices')
 
 urlpatterns = [
     path("api/v1/", include(router.urls)),

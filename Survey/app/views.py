@@ -4,8 +4,8 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.viewsets import ModelViewSet
 
 from .filters import AnswersFilter
-from .models import Survey, Question, Answer
-from .serializers import SurveySerializer, QuestionSerializer, AnswerSerializer
+from .models import Survey, Question, Answer, Choice
+from .serializers import SurveySerializer, QuestionSerializer, AnswerSerializer, ChoiceSerializer
 
 
 # # from app.models import Survey, Question
@@ -44,4 +44,6 @@ class AnswerViewSet(ModelViewSet):
             return [IsAuthenticated(), IsAdminUser()]
         return []
 
-
+class ChoiceViewSet(ModelViewSet):
+    queryset = Choice.objects.all()
+    serializer_class = ChoiceSerializer
