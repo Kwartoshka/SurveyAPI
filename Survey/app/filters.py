@@ -1,15 +1,16 @@
 from django_filters import FilterSet, Filter
 
-from app.models import Answer, Question
+from .models import Answer, Question
 
 
 class SurveyFilter(Filter):
     def filter(self, qs, value):
-        if value is None:
+        if value == '' or value is None:
             return qs
-        questions = Question.objects.all().filter(survey=value)
-        survey_query = qs.filter(question__in=questions)
-        return survey_query
+        else:
+            questions = Question.objects.all().filter(survey=value)
+            survey_query = qs.filter(question__in=questions)
+            return survey_query
 
 
 class AnswersFilter(FilterSet):
