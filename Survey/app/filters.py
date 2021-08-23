@@ -1,4 +1,3 @@
-import django_filters
 from django_filters import FilterSet, Filter
 
 from app.models import Answer, Question

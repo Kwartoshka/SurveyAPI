@@ -27,12 +27,12 @@ class Choice(models.Model):
 
 
 class Answer(models.Model):
+    # cuz surveys are anonymous we don't ask user to be authenticated, so we just ask id as number
     user = models.IntegerField()
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     text_answer = models.TextField(null=True)
-    choice_answer = models.ManyToManyField(Choice, null=True)
+    choices = models.ManyToManyField(Choice, null=True, related_name='answers')
 
     class Meta:
         unique_together = ('question', 'user')
 
-class AnswerChoice(models.Model):
