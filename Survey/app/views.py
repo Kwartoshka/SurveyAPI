@@ -34,7 +34,7 @@ class AnswerViewSet(ModelViewSet):
     filterset_class = AnswersFilter
 
     def get_permissions(self):
-        if self.action in ['create', 'destroy', 'update', 'partial_update']:
+        if self.action == 'destroy':
             return [IsAuthenticated(), IsAdminUser()]
         return []
 
