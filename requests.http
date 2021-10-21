@@ -1,0 +1,164 @@
+GET http://127.0.0.1:8000/api/v1/surveys/
+
+
+###
+
+GET http://127.0.0.1:8000/api/v1/answers/
+?user=
+&survey=
+&question=
+###
+
+POST http://127.0.0.1:8000/api/v1/surveys/
+Authorization: Token 53820d1d6d54e07c2b37482c0ccbfa020f828c6c
+Content-Type: application/json
+
+{
+    "title": "First survey",
+    "description": "TEST SURVEY"
+}
+
+###
+
+PATCH http://127.0.0.1:8000/api/v1/surveys/2/
+Authorization: Token 53820d1d6d54e07c2b37482c0ccbfa020f828c6c
+Content-Type: application/json
+
+{
+    "title": "My survey",
+    "description": "TEST2 SURVEY"
+}
+
+###
+
+
+POST http://127.0.0.1:8000/api/v1/questions/
+Authorization: Token 53820d1d6d54e07c2b37482c0ccbfa020f828c6c
+Content-Type: application/json
+
+ {
+        "text": "what's your text answer?",
+        "type": "TEXT",
+        "survey": 2
+    }
+
+###
+
+PUT http://127.0.0.1:8000/api/v1/questions/4/
+Authorization: Token 53820d1d6d54e07c2b37482c0ccbfa020f828c6c
+Content-Type: application/json
+
+ {
+        "text": "what's your text answersss?",
+        "type": "TEXT",
+        "survey": 2
+    }
+
+###
+
+PATCH http://127.0.0.1:8000/api/v1/questions/7/
+Authorization: Token 53820d1d6d54e07c2b37482c0ccbfa020f828c6c
+Content-Type: application/json
+
+ {
+        "text": "what's your text answersss?",
+        "type": "TEXT"
+    }
+
+###
+
+
+DELETE http://127.0.0.1:8000/api/v1/questions/4/
+Authorization: Token 53820d1d6d54e07c2b37482c0ccbfa020f828c6c
+Content-Type: application/json
+
+
+
+###
+
+
+
+POST http://127.0.0.1:8000/api/v1/choices/
+Authorization: Token 53820d1d6d54e07c2b37482c0ccbfa020f828c6c
+Content-Type: application/json
+
+    {
+        "choice": "YELLOW",
+        "question": 5
+    }
+
+###
+
+PUT http://127.0.0.1:8000/api/v1/choices/6/
+Authorization: Token 53820d1d6d54e07c2b37482c0ccbfa020f828c6c
+Content-Type: application/json
+
+    {
+        "choice": "GREEN",
+        "question": 5
+    }
+
+###
+
+PATCH http://127.0.0.1:8000/api/v1/choices/6/
+Authorization: Token 53820d1d6d54e07c2b37482c0ccbfa020f828c6c
+Content-Type: application/json
+
+ {
+        "choice": "PINK",
+        "question": 5
+    }
+
+###
+
+
+DELETE http://127.0.0.1:8000/api/v1/questions/7/
+Authorization: Token 53820d1d6d54e07c2b37482c0ccbfa020f828c6c
+Content-Type: application/json
+
+
+
+###
+
+
+
+
+POST http://127.0.0.1:8000/api/v1/answers/
+Content-Type: application/json
+
+    {
+        "choices": [6],
+        "question": 5,
+        "user": 3
+    }
+
+###
+
+PUT http://127.0.0.1:8000/api/v1/answers/1/
+Content-Type: application/json
+
+    {
+        "choices": [3],
+        "question": 5,
+        "user": 1
+    }
+
+###
+
+PATCH  http://127.0.0.1:8000/api/v1/answers/7/
+Content-Type: application/json
+
+    {
+        "choices": [3, 4],
+    }
+
+###
+
+
+DELETE http://127.0.0.1:8000/api/v1/answers/7/
+Authorization: Token 53820d1d6d54e07c2b37482c0ccbfa020f828c6c
+Content-Type: application/json
+
+
+
+###
