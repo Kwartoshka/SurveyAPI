@@ -26,7 +26,8 @@
 1.в директории проекта создать образ:
    ````
    sudo docker build --tag survey ./ 
-   
+
+
 2. Запустить контейнер:
    ````
     sudo docker run -d -p 5000:5000 survey
