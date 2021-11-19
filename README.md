@@ -22,28 +22,11 @@
 # Выполнить следующие команды:
 
 ## Инструкции
-
-Для запуска проекта необходимо:
-1. Создать базу данных PostgreSQL:
-   ```` sql
-    CREATE USER basic with password basic1;
-    CREATE DATABASE basic_db WITH OWNER basic;
-    ALTER USER basic CREATEDB;
-   
-2. Установить зависимости:
+### Для запуска проекта необходимо
+1.в директории проекта создать образ:
    ````
-    pip install -r requirements.txt
+   sudo docker build --tag survey ./ 
    
-3. Произвести миграции:
+2. Запустить контейнер:
    ````
-   python manage.py migrate
-   
-4. Загрузить тестовые данные:
-   ````
-   python manage.py loaddata fixtures.json
-
-5. Для запуска сервера выполнить команду:
-    ````
-    python manage.py runserver
-
-6. Примеры запросов представлены в файле requests.http
+    sudo docker run -d -p 5000:5000 survey
